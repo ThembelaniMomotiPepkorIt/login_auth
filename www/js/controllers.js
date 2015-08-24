@@ -24,20 +24,20 @@ angular.module('starter.controllers', ['ionic', 'starter.services', 'starter.con
 	};
 })
 
-.controller('LoginCtrl', function($scope){
+.controller('LoginCtrl', function($scope, AuthService, $state, $ionicPopup){
 	console.log('Login Controller');
 	$scope.data = {};
 	
 	$scope.login = function(data){
-		console.log($scope.data.username);
-		console.log('trying to login');
 		AuthService.login(data.username, data.password).then(function(authenticated){
-			$state.go('main.dash', 
+		$state.go('main.dash', 
 					   {},
 					   {reload: true});
 
-			$scope.setCurrnetUsername(data.username);
+			$scope.setCurrentUsername(data.username);
+			console.log('success login');
 		},function(err){
+				console.log('error login');
 			var alertpopup = $ionicPopup.alert({
 				title : 'Login Failed!',
 				template : 'Please check your credentials!'
@@ -46,7 +46,7 @@ angular.module('starter.controllers', ['ionic', 'starter.services', 'starter.con
 	};
 })
 
-.controller('DashCtrl', function($scope, AuthService, $state){
+.controller('DashCtrl', function($scope, AuthService, $state, $http){
 	$scope.logout = function(){
 		AuthService.logout();
 		$state.go('login');

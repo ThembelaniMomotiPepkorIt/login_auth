@@ -7,7 +7,7 @@ angular.module('starter.services', ['ionic', 'starter.constants'])
 	var role = '';
 	var authToken;
 
-	//Create token and pass change values of variables
+	//Create token
 	function loadUserCredentials(){
 		var token = window.localStorage.getItem(LOCAL_TOKEN_KEY);
 		if (token){
@@ -21,6 +21,7 @@ angular.module('starter.services', ['ionic', 'starter.constants'])
 		useCredentials(token);
 	};
 
+	//Changes user variables
 	function useCredentials(token){
 		username = token.split('.')[0];
 		isAuthenticated =true;
