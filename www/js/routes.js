@@ -5,8 +5,8 @@ angular.module('starter.routes', ['ionic','starter.constants'])
 	
 
 	$urlRouterProvider.otherwise(function($injector, $location){
-		var $state = $injector.get($state);
-		$state.go('main.dash');
+		//var $state = $injector.get($state);
+		//$state.go('main.dash');
 	});
 
 	//$urlRouterProvider.otherwise('main/dash');
@@ -26,7 +26,7 @@ angular.module('starter.routes', ['ionic','starter.constants'])
 		.state('main.dash', {
 			url : 'main/dash',
 			views : {
-				'dashboard-view' : {
+				'dash-tab' : {
 					templateUrl : 'templates/dashboard.html',
 					controller : 'DashCtrl'
 				}
@@ -36,7 +36,7 @@ angular.module('starter.routes', ['ionic','starter.constants'])
 		.state('main.admin', {
 			url : 'main/admin',
 			views : {
-				'admin-view' : {
+				'admin-tab' : {
 					templateUrl : 'templates/admin.html',
 
 				}
@@ -48,7 +48,7 @@ angular.module('starter.routes', ['ionic','starter.constants'])
 		.state('main.public',{
 			url : '/main/public',
 			views : {
-				'public-view' :  {
+				'public-tab' :  {
 					templateUrl : 'templates/public.html',
 
 				}

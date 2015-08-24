@@ -8,4 +8,4 @@ angular.module('starter.constants', ['ionic'])
 .constant('USER_ROLES', {
 	admin : 'admin_role',
 	public : 'public_role'
-})
+});
